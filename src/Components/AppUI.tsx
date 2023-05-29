@@ -4,25 +4,16 @@ import { TodoItem } from './TodoItem'
 import { TodoSearch } from './TodoSearch'
 import { TodoList } from './TodoList'
 import { CreateTodoButton } from './CreateTodoButton'
-import { AppUIProps } from '../interfaces/AppUI'
+import { TodoContext } from '../context/TodoContext'
+import { useContext } from 'react'
 
 
-function AppUI({
-  completedTodos,
-  totalTodos,
-  searchedTodos,
-  searchValue,
-  setSearchValue,
-  toggleTodo,
-  deleteTodo
-}: AppUIProps): JSX.Element {
+function AppUI(): JSX.Element {
+  const { totalTodos, searchedTodos, toggleTodo, deleteTodo } = useContext(TodoContext)
   return (
     <>
-    <TodoCounter completed={completedTodos} total={totalTodos}/>
-    <TodoSearch
-      searchValue={searchValue}
-      setSearchValue={setSearchValue}
-    />
+    <TodoCounter />
+    { totalTodos > 0 && <TodoSearch /> }
     <TodoList>
       {searchedTodos.map(
         todo => (

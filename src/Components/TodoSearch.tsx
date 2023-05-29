@@ -1,4 +1,5 @@
-import { TodoSearchProps } from "../interfaces/TodoSearch";
+import { useContext } from 'react';
+import { TodoContext } from '../context/TodoContext';
 import { ReactComponent as SearchSVG } from "../assets/search.svg";
 
 const default_texts: string[] = [
@@ -9,8 +10,8 @@ const default_texts: string[] = [
     "Tomar una siesta"
   ]
 
-function TodoSearch({searchValue, setSearchValue}: TodoSearchProps): JSX.Element {
-
+function TodoSearch(): JSX.Element {
+  const { searchValue, setSearchValue } = useContext(TodoContext)
   const placeholder: string = default_texts[Math.floor(Math.random()*default_texts.length)];
   return (
     <>
