@@ -1,13 +1,14 @@
-import { useState, createContext, ReactNode } from 'react'
-import { useLocalStorage } from '../hooks/use-localstorage.hook'
-import { TodoItemBase } from '../interfaces/TodoItem'
-import { AppUIProps } from '../interfaces/AppUI'
+import { useState, createContext, ReactNode } from "react"
+import { useLocalStorage } from "../hooks/use-localstorage.hook"
+import { TodoItemBase } from "../interfaces/TodoItem"
+import { AppContext } from "../interfaces/App"
 
-const TodoContext = createContext<AppUIProps>({} as AppUIProps);
+const TodoContext = createContext<AppContext>({} as AppContext);
 
 function TodoProvider({children}: {children: ReactNode}): JSX.Element {
-  const [todos, saveTodos] = useLocalStorage<TodoItemBase[]>('TODOMANAGER', [])
+  const [todos, saveTodos] = useLocalStorage<TodoItemBase[]>("TODOMANAGER", [])
   const [searchValue, setSearchValue] = useState<string>("");
+  const [openModal, setOpenModal] = useState<boolean>(false)
 
   const completedTodos: number = todos.filter(item => item.completed === true).length;
   const totalTodos: number = todos.length;
@@ -29,9 +30,14 @@ function TodoProvider({children}: {children: ReactNode}): JSX.Element {
     )
     saveTodos(newTodos);
   }
+  const addTodo = (text: string): void => {
+    const newTodos = [...todos]
+    newTodos.push({text: text, completed: false})
+    saveTodos(newTodos)
+  }
 
   return (
-    <TodoContext.Provider value={{completedTodos, totalTodos, searchedTodos, searchValue, setSearchValue, toggleTodo, deleteTodo}}>
+    <TodoContext.Provider value={{completedTodos, totalTodos, searchedTodos, searchValue, setSearchValue, toggleTodo, deleteTodo, openModal, setOpenModal, addTodo}}>
       {children}
     </TodoContext.Provider>
   )

@@ -1,9 +1,10 @@
-import { useContext } from 'react';
-import { TodoContext } from '../context/TodoContext';
+import { useContext } from "react";
+import { TodoContext } from "../context/TodoContext";
+import { AppContext } from "../interfaces/App"
 
 
 function TodoCounter(): JSX.Element {
-  const { completedTodos, totalTodos} = useContext(TodoContext)
+  const { completedTodos, totalTodos} = useContext<AppContext>(TodoContext)
   const text: string = totalTodos === 1 ? "tarea" : "tareas";
   const message: string = totalTodos === 0? "Crea tu primera tarea con el boton de abajo a la derecha."
     : totalTodos === completedTodos ? `Felicidades has realizado todas tus tareas, es hora de tomarte un descanzo.`

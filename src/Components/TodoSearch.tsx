@@ -1,6 +1,7 @@
-import { useContext } from 'react';
-import { TodoContext } from '../context/TodoContext';
-import { ReactComponent as SearchSVG } from "../assets/search.svg";
+import { useContext } from "react";
+import { TodoContext } from "../context/TodoContext";
+// import { ReactComponent as SearchSVG } from "../assets/search.svg";
+import { AppContext } from "../interfaces/App"
 
 const default_texts: string[] = [
     "Alimentar al michi",
@@ -11,7 +12,7 @@ const default_texts: string[] = [
   ]
 
 function TodoSearch(): JSX.Element {
-  const { searchValue, setSearchValue } = useContext(TodoContext)
+  const { searchValue, setSearchValue } = useContext<AppContext>(TodoContext)
   const placeholder: string = default_texts[Math.floor(Math.random()*default_texts.length)];
   return (
     <>
@@ -22,7 +23,6 @@ function TodoSearch(): JSX.Element {
         value={searchValue}
         onChange={(event) => {setSearchValue(event.target.value)}}
       />
-      <SearchSVG className="todo-search__icon" fill="none" stroke="var(--main-blue)" />
     </>
   )
 }

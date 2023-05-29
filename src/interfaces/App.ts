@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { TodoItemBase } from "./TodoItem";
 
-interface AppUIProps {
+interface AppContext {
   completedTodos: number;
   totalTodos: number;
   searchedTodos: TodoItemBase[];
@@ -9,6 +9,9 @@ interface AppUIProps {
   setSearchValue: Dispatch<SetStateAction<string>>;
   toggleTodo: (text: string) => void;
   deleteTodo: (text: string) => void;
+  openModal: boolean;
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
+  addTodo: (text: string) => void;
 }
 
-export type { AppUIProps };
+export type { AppContext };

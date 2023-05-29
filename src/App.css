@@ -11,14 +11,14 @@ html {
   text-align: center;
   color: var(--main-tea);
 }
-input[type='text'] {
+input[type="text"] {
   font-size: 1.8rem;
   color: var(--main-blue);
   border: 0.1rem solid var(--main-blue);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
-input[type='text']:focus {
+input[type="text"]:focus {
   outline: none;
   border: 0.1rem solid var(--main-tea);
   color: var(--soft-blue);
@@ -29,6 +29,10 @@ input[type='text']:focus {
   color: var(--main-blue);
 }
 .todo-search {
+  background-image: url("./assets/search.svg");
+  background-repeat: no-repeat;
+  background-position: right 1rem top 0.6rem;
+  background-size: 1.8rem;
   width: 80%;
 }
 .todo-search__icon {
@@ -104,4 +108,77 @@ input[type='text']:focus {
 }
 .create-todo-button:hover {
   transform: rotate(180deg);
+}
+
+.modal-background {
+  background-color: rgba(32, 35, 41, .8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+form {
+  width: 90%;
+  max-width: 30rem;
+  background-color: #fff;
+  padding: 3.3rem 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0.5rem;
+}
+.todo-form__title {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--main-blue);
+  margin-bottom: 2.6rem;
+}
+
+.todo-form__input {
+  width: 90%;
+}
+
+.todo-form__button-container {
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.todo-form__button {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.8rem;
+  width: 12rem;
+  height: 4.8rem;
+  border-radius: 0.2rem;
+  border: none;
+  color: var(--main-blue);
+}
+
+.todo-form__button--add {
+  background: var(--soft-tea);
+}
+
+.todo-form__button--cancel {
+  background: transparent;
+}
+
+.modal__close-button {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  cursor: pointer;
 }

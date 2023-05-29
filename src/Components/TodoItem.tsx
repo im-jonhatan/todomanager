@@ -1,5 +1,5 @@
-import {TodoItemProps} from '../interfaces/TodoItem'
-import { TodoIcon } from './TodoIcon'
+import {TodoItemProps} from "../interfaces/TodoItem"
+import { TodoIcon } from "./TodoIcon"
 
 function TodoItem({text, completed, onComplete, onDelete}: TodoItemProps): JSX.Element {
   return (
