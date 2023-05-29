@@ -6,9 +6,7 @@ export default defineConfig({
   esbuild: {
     drop: ["console", "debugger"],
   },
-  plugins: [
-    react({include: ["**/*.tsx", "**/*.css"]})
-  ],
+  plugins: [react({include: "**/*.jsx",})],
   server: {
     port: 3000,
   },
@@ -17,7 +15,7 @@ export default defineConfig({
       output: {
         entryFileNames: `[name].js`,
         chunkFileNames: `[name].js`,
-        assetFileNames: `[name].[ext]`,
+        assetFileNames: `assets/[name].[ext]`,
       },
     },
   },

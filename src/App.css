@@ -13,6 +13,7 @@ html {
 }
 input[type='text'] {
   font-size: 1.8rem;
+  color: var(--main-blue);
   border: 0.1rem solid var(--main-blue);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -29,6 +30,9 @@ input[type='text']:focus {
 }
 .todo-search {
   width: 80%;
+  background: url("assets/search.svg") no-repeat;
+  background-size: 1.8rem;
+  background-position: right 1rem center;
 }
 .todo-list {
   width: 100%;

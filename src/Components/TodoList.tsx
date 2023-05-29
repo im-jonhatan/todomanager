@@ -1,10 +1,7 @@
-import { ReactNode } from 'react'
+import { TodoListProps } from '../interfaces/TodoList'
 
-interface  PropsTodoList {
-  children: ReactNode
-}
 
-function TodoList(props: PropsTodoList): JSX.Element {
+function TodoList(props: TodoListProps): JSX.Element {
   return (
     <ul className='todo-list'>
       {props.children}
