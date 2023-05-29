@@ -30,9 +30,13 @@ input[type='text']:focus {
 }
 .todo-search {
   width: 80%;
-  background: url("assets/search.svg") no-repeat;
-  background-size: 1.8rem;
-  background-position: right 1rem center;
+}
+.todo-search__icon {
+  position: absolute;
+  right: calc(11% + 0.5rem);
+  top: 6.2rem;
+  height: 1.8rem;
+  width: 1.8rem;
 }
 .todo-list {
   width: 100%;
@@ -56,19 +60,12 @@ input[type='text']:focus {
 }
 
 .todo-item__icon {
-  background: url("assets/check-square.svg") no-repeat;
-  background-size: 90%;
-  background-position: center center;
   width: 2.5em;
   height: 2.5em;
   border: none;
   cursor: pointer;
 }
-.todo-item__icon--completed {
-  background: url("assets/check-square-tea.svg") no-repeat;
-  background-size: 90%;
-  background-position: center center;
-}
+
 .todo-item__text {
   flex-grow: 1;
   text-align: left;
@@ -79,18 +76,18 @@ input[type='text']:focus {
   text-decoration: line-through;
 }
 .todo-item__close {
-  background: url("assets/x.svg") no-repeat;
-  background-size: 90%;
-  background-position: center center;
   width: 1.2em;
   height: 1.2em;
   border: none;
   cursor: pointer;
 }
+.todo-item__close svg {
+  fill: #808080;
+}
+.todo-item__close:hover svg {
+  fill: #f00;
+}
 .create-todo-button {
-  background: url("assets/plus.svg") no-repeat;
-  background-size: 90%;
-  background-position: center center;
   background-color: var(--soft-tea);
   border: none;
   border-radius: 50%;
@@ -100,6 +97,7 @@ input[type='text']:focus {
   right: 2.4rem;
   height: 6rem;
   width: 6rem;
+  padding: 0;
 
   transform: rotate(0);
   transition: .3s ease;

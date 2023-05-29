@@ -1,3 +1,5 @@
+import { ReactComponent as PlusSVG } from "../assets/plus.svg";
+
 function CreateTodoButton(): JSX.Element {
   return (
     <button className="create-todo-button"
@@ -7,7 +9,9 @@ function CreateTodoButton(): JSX.Element {
           window.console.log('target:', event.target)
         }
       }
-    />
+    >
+      <PlusSVG fill="none" stroke="var(--soft-blue)"/>
+    </button>
   );
 
 }

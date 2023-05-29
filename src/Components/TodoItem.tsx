@@ -1,18 +1,21 @@
 import {TodoItemProps} from '../interfaces/TodoItem'
+import { TodoIcon } from './TodoIcon'
 
 function TodoItem({text, completed, onComplete, onDelete}: TodoItemProps): JSX.Element {
   return (
     <>
       <li className="todo-item">
-        <span
-          className={`todo-item__icon ${completed && "todo-item__icon--completed"}`}
-          onClick={onComplete}
-        ></span>
+        <TodoIcon
+         type={completed ? "checked" : "square"}
+         onClick={onComplete}
+
+        />
         <p className={`todo-item__text ${completed && "todo-item__text--completed"}`}>{text}</p>
-        <span
-          className="todo-item__close"
-          onClick={onDelete}
-        ></span>
+        <TodoIcon
+         type={"close"}
+         onClick={onDelete}
+
+        />
       </li>
     </>
   )
