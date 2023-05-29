@@ -1,13 +1,11 @@
-interface TodoItemI {
+interface TodoItemBase {
   text: string;
   completed: boolean;
 }
 
-interface TodoItemProps {
-  text: string;
-  completed: boolean;
+interface TodoItemProps extends TodoItemBase {
   onComplete: () => void;
   onDelete: () => void;
 }
 
-export type { TodoItemProps, TodoItemI };
+export type { TodoItemProps, TodoItemBase };

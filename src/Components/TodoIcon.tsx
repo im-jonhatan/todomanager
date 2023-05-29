@@ -8,10 +8,12 @@ const iconType:{ [key: string]: JSX.Element } = {
   "square": <SquaredSVG fill={"none"} stroke={"var(--main-blue)"} />,
   "close": <CloseSVG />,
 }
+
+
 function TodoIcon({type, onClick}: TodoIconProps): JSX.Element {
   return (
     <span
-      className={`todo-item__${type == "close" ? "close" : "icon"}`}
+      className={`todo-item__${type === "close" ? "close" : "icon"}`}
       onClick={onClick}
     >
       {iconType[type]}

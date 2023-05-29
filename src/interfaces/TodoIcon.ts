@@ -1,5 +1,6 @@
 interface TodoIconProps {
-  type: string,
-  onClick: () => void
+  type: string;
+  onClick: () => void;
 }
- export type { TodoIconProps }
+
+export type { TodoIconProps };

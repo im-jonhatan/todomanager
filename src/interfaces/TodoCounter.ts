@@ -1,6 +1,6 @@
 interface TodoCounterProps {
-  total: number,
-  completed: number
+  total: number;
+  completed: number;
 }
 
 export type {TodoCounterProps}
