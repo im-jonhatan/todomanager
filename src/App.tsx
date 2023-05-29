@@ -7,12 +7,28 @@ import { TodoList } from './components/TodoList'
 import { CreateTodoButton } from './components/CreateTodoButton'
 import { TodoItemI } from './interfaces/TodoItem';
 
-const defaultTodos = [
-  {text: 'cortar cebolla', completed: true},
-  {text: 'llorar con la llorona', completed: false},
-]
+// const newTodos = [
+//   {text: 'cortar cebolla', completed: true},
+//   {text: 'llorar con la llorona', completed: false},
+// ]
 function App(): JSX.Element {
-  const [todos, setTodos] = useState<TodoItemI[]>(defaultTodos)
+  const localStorageTodos = localStorage.getItem('TODOMANAGER')
+
+  let parsedTodos
+
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOMANAGER', JSON.stringify([]))
+    parsedTodos = []
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos)
+  }
+
+  const saveTodos = (newTodos: TodoItemI[]) => {
+    localStorage.setItem('TODOMANAGER', JSON.stringify(newTodos));
+    setTodos(newTodos);
+  };
+
+  const [todos, setTodos] = useState<TodoItemI[]>(parsedTodos)
   const [searchValue, setSearchValue] = useState<string>("");
 
   const completedTodos: number = todos.filter(item => item.completed === true).length;
@@ -27,13 +43,13 @@ function App(): JSX.Element {
       (todo) => todo.text == text
     )
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed
-    setTodos(newTodos)
+    saveTodos(newTodos);
   }
   const deleteTodo = (text: string) => {
     const newTodos = todos.filter(
       (todo) => (todo.text != text)
     )
-    setTodos(newTodos)
+    saveTodos(newTodos);
   }
   return (
     <>
