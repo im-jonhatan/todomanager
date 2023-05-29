@@ -1,6 +1,7 @@
 # todomanager
 app to create a to do list.
 ToDo's can be marked or unmarked as completed and deleted it.
+[gh-pages url](https://im-jonathan.github.io/todomanager/)
 made with [vite](https://vitejs.dev/) using [typescript](https://www.typescriptlang.org/).
 
   
