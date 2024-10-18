@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { TodoContext } from "../context/TodoContext";
-import { ReactComponent as PlusSVG } from "../assets/plus.svg";
+import PlusSVG from "../assets/plus.svg?react";
 import { AppContext } from "../interfaces/App"
 
 function CreateTodoButton(): JSX.Element {
@@ -13,7 +13,7 @@ function CreateTodoButton(): JSX.Element {
     <button className="create-todo-button"
       onClick={toggleModal}
     >
-      <PlusSVG fill="none" stroke="var(--soft-blue)"/>
+      <PlusSVG/>
     </button>
   );
 

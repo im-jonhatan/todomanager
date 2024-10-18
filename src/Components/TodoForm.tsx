@@ -1,5 +1,5 @@
 import { useContext, useState, ChangeEvent, FormEvent } from "react";
-import { ReactComponent as CloseSVG } from "../assets/x.svg";
+import CloseSVG from "../assets/x.svg?react";
 import { TodoContext } from "../context/TodoContext";
 import { AppContext } from "../interfaces/App"
 
@@ -47,7 +47,7 @@ function TodoForm(): JSX.Element {
         className="modal__close-button"
         onClick={closeModal}
       >
-        <CloseSVG fill="red" stroke="red" />
+        <CloseSVG />
       </span>
     </>
   )
